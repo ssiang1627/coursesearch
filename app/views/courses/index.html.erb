@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>課程查詢系統</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>--課程--</th>
+   
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= form_tag courses_path,method:"get" do%>
+    課程名稱  <%= text_field_tag :name %>
+    授課老師  <%= text_field_tag :teacher %>
+    課程時間  <%= text_field_tag :time %>
+    <%= submit_tag "search"%>
+<% end %>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.name %></td>
+       
+        <td><%= link_to '課程內容', course %></td>
+        <td><%= link_to '修改課程', edit_course_path(course) %></td>
+        <td><%= link_to '刪除課程', course, method: :delete, data: { confirm: '確定要刪除此課程嗎?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新增課程', new_course_path %>

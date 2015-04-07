@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>課程名稱:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>授課老師:</strong>
+  <%= @course.teacher %>
+</p>
+
+<p>
+  <strong>課程地點:</strong>
+  <%= @course.classroom %>
+</p>
+
+<p>
+  <strong>課程時間:</strong>
+  <%= @course.time %>
+</p>
+
+<p>
+  <strong>學分數:</strong>
+  <%= @course.credit %>
+</p>
+
+<%= link_to '修改課程', edit_course_path(@course) %> |
+<%= link_to '返回課程查詢系統', courses_path %>
